@@ -7,7 +7,7 @@ const Firstform = () => {
       <form>
         <h1>Feedback</h1>
         <h2>Feedback Type: </h2>
-          <ul>
+        <ul>
             <li>
               <input type="radio" id="f-option" name="selector"/>
               <label for="f-option">Bug</label>
@@ -29,6 +29,7 @@ const Firstform = () => {
               <div class="check"><div class="inside"></div></div>
             </li>
           </ul>
+                
 
       </form>
       
