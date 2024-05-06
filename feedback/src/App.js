@@ -1,11 +1,12 @@
 import './App.css';
+import Firstform from './components/form_one/firstform';
+import Secondform from './components/form_two/secondform';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        
-      </header>
+    <div>        
+      <Firstform />
+      <Secondform />
     </div>
   );
 }
