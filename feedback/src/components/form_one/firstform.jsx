@@ -1,6 +1,6 @@
 import React from 'react';
 import './firstform.css';
-import { Radio, RadioGroup, FormControlLabel, FormControl, FormLabel, TextField } from '@mui/material';
+import { Radio, RadioGroup, FormControlLabel, FormControl, FormLabel, TextField, Button } from '@mui/material';
 
 
 
@@ -40,6 +40,10 @@ const Firstform = () => {
         value="Enter your feedback here..."
         onChange={handleChange}
       />
+      <br />
+      <Button type="submit" variant="contained" color="primary">
+        Submit
+      </Button>
 
     
       
