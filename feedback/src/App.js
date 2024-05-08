@@ -4,7 +4,7 @@ import Secondform from './components/form_two/secondform';
 
 function App() {
   return (
-    <div>        
+    <div className='background'>         
       <Firstform />
       <Secondform />
     </div>
