@@ -1,3 +1,30 @@
-h1 {
-    color: black;
-}
+
+.formtwo {
+    background-color: white;
+    padding: 1.5rem;
+    width: max-content;
+    display: flex;
+    flex-direction: column;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    margin-left: 3rem;
+  }
+  
+  .formtwo h1{
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    font-weight: 500;
+    margin-top: -0.01rem;
+    margin-bottom: -0.1rem;
+  }
+
+  .formtwo h2{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 1.2rem;
+  }
+  
+  .formtwo Button {
+    width: max-content;
+  }
+  

@@ -1,54 +1,78 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './secondform.css';
-import { Radio, RadioGroup, FormControlLabel, FormControl, FormLabel, TextField, Button } from '@mui/material';
+import { TextField, Button, Card, CardContent, Typography, IconButton, ThemeProvider } from '@mui/material';
+import DeleteIcon from '@mui/icons-material/Delete';
+import { createTheme } from '@mui/material/styles';
 
-
-
+const theme = createTheme(); // Create a theme instance
 
 const Secondform = () => {
- 
-    const [value, setValue] = React.useState('Bug');
-  
-    const handleChange = (event) => {
-      setValue(event.target.value);
+    const [feedbacks, setFeedbacks] = useState([]);
+
+    const handleAddFeedback = () => {
+        setFeedbacks([...feedbacks, '']);
     };
-  return (
-    <div className='formone'>
-      <h1>Feedback</h1>
-      <FormControl component="fieldset">
-      <FormLabel component="legend">Feedback Type</FormLabel>
-      <RadioGroup
-        aria-label="gender"
-        defaultValue="Bug"
-        name="radio-buttons-group"
-        value={value}
-        onChange={handleChange}
-      >
-        <div className='radio'>
-        <FormControlLabel value="Bug" control={<Radio />} label="Bug" />
-        <FormControlLabel value="Feature" control={<Radio />} label="Feature" />
-        <FormControlLabel value="Request" control={<Radio />} label="Request" />
-        </div>
-      </RadioGroup>
-    </FormControl>
-<br />
-<TextField
-        id="outlined-multiline-static"
-        multiline
-        rows={4}
-        defaultValue="Default Value"
-        value="Enter your feedback here..."
-        onChange={handleChange}
-      />
-      <br />
-      <Button type="submit" variant="contained" color="primary">
-        Submit
-      </Button>
 
-    
-      
-    </div>
-  )
-}
+    const handleDeleteFeedback = (index) => {
+        const newFeedbacks = [...feedbacks];
+        newFeedbacks.splice(index, 1);
+        setFeedbacks(newFeedbacks);
+    };
 
-export default Secondform
+    const handleFeedbackChange = (event, index) => {
+        const newFeedbacks = [...feedbacks];
+        newFeedbacks[index] = event.target.value;
+        setFeedbacks(newFeedbacks);
+    };
+
+    const [value, setValue] = useState('Bug');
+
+    const handleChange = (event) => {
+        setValue(event.target.value);
+    };
+
+    return (
+        <ThemeProvider theme={theme}> {/* Wrap your component tree with ThemeProvider */}
+            <div className='formtwo'>
+                <h1>Feedback</h1>
+                <h2>Count: {feedbacks.length}</h2>
+                {feedbacks.map((feedback, index) => (
+                    <Card key={index} variant="outlined" style={{ marginBottom: '1rem' }}>
+                        <CardContent>
+                            <Typography variant="h5" component="h3">
+                                Feedback {index + 1}
+                            </Typography>
+                            <TextField
+                                id={`feedback-${index}`}
+                                multiline
+                                rows={4}
+                                defaultValue={feedback}
+                                onChange={(event) => handleFeedbackChange(event, index)}
+                            />
+                            <IconButton aria-label="delete" onClick={() => handleDeleteFeedback(index)}>
+                                <DeleteIcon />
+                            </IconButton>
+                        </CardContent>
+                    </Card>
+                ))}
+                <TextField
+                    id="outlined-multiline-static"
+                    multiline
+                    rows={4}
+                    defaultValue="Default Value"
+                    value="Enter your feedback here..."
+                    onChange={handleChange}
+                />
+                <br />
+                <Button variant="contained" color="primary" onClick={handleAddFeedback}>
+                    Download
+                </Button>
+                <Button type="submit" variant="contained" color="primary" style={{ marginLeft: '1rem' }}>
+                    Submit
+                </Button>
+            </div>
+        </ThemeProvider>
+    );
+};
+
+export default Secondform;
