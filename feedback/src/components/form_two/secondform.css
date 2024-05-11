@@ -24,7 +24,7 @@
     font-size: 1.2rem;
   }
 
-  .formtwo h3{
+  .formtwo h3, p{
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
     font-size: 1rem;
@@ -34,17 +34,9 @@
     width: max-content;
   }
 
-  .option-card {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    /* width: max-content;
-     */
-     height: 0.2rem;
-   
-  }
 
-  .option-card h3 {
+
+  .options h3 {
     padding: 0.1rem;
     margin-right: 1rem;
     margin-top: -0.3rem;
@@ -52,8 +44,22 @@
     /* margin-top: -0.3rem; */
   }
 
-  
+  .accordion-style {
+    height: max-content;
+    width: 30rem;
+  }
+
+  .accordion-summary{
+    height: 3rem;
+  }
+
+  .accordion-summary h3{
+    margin-top: 1rem;
+  }
   .options {
+    display: flex;
+    flex-direction: column;
+    height: max-content;
     background-color: white;
     padding: 0.2rem;
     border-radius: 0.3rem;
@@ -65,11 +71,20 @@
   margin-bottom: 0.2rem;
 }
 
-.icon-style{
-  
+.details-align-right {
+  display: flex;
+  justify-content: space-between;
+  align-items: last baseline;
 }
 
+
 .buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.numbers {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
