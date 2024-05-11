@@ -23,8 +23,47 @@
     font-weight: 400;
     font-size: 1.2rem;
   }
+
+  .formtwo h3{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+  }
   
   .formtwo Button {
     width: max-content;
   }
+
+  .option-card {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: max-content;
+    height: 0.2rem;
+   
+  }
+
+  .option-card h3 {
+    padding: 0.1rem;
+    margin-right: 1rem;
+    margin-top: -0.3rem;
+
+    /* margin-top: -0.3rem; */
+  }
+
   
+  .options {
+    background-color: white;
+    padding: 0.2rem;
+    border-radius: 0.3rem;
+    /* border: 1px solid black; Add black border */
+    box-shadow: 0 0 5px rgba(136, 136, 136, 0.5); /* Add box shadow */
+}
+
+.card-style{
+  margin-bottom: 0.2rem;
+}
+
+.icon-style{
+  
+}
