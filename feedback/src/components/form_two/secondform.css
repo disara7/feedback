@@ -33,7 +33,7 @@
   .formtwo Button {
     width: max-content;
   }
-  
+
   .options h3 {
     padding: 0.1rem;
     margin-right: 1rem;
@@ -73,6 +73,7 @@
   display: flex;
   justify-content: space-between;
   align-items: last baseline;
+  margin-top: -1rem;
 }
 
 
@@ -87,3 +88,18 @@
   flex-direction: row;
   justify-content: space-between;
 }
+
+.numbers p{
+  font-size: 0.8rem;
+}
+.scale {
+  margin-top: -1rem;
+  color: grey;
+  display: flex;
+  justify-content: space-between;
+}
+
+.scale p {
+  font-size: 0.8rem;
+}
+

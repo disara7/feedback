@@ -28,7 +28,7 @@ const Secondform = () => {
             <br />
             <FormControl component="fieldset">
 
-                <FormLabel component="legend">Count: </FormLabel>
+                <FormLabel component="legend">Count: 3</FormLabel>
                 <br />
                 <div className='options'>
                     <Accordion className='accordion-style'>
@@ -102,8 +102,12 @@ const Secondform = () => {
                 <p>3</p>
                 <p>4</p>
                 <p>5</p>
+                
             </div>
-            
+            <div className="scale">
+            <p>Not very likely</p>
+                <p>Very likely</p>
+            </div>
             <br />
             <FormControlLabel
                 control={<Checkbox checked={checked} onChange={handleCheckboxChange} />}
@@ -121,7 +125,17 @@ const Secondform = () => {
                 >
                     Download
                 </Button>
-                <br />
+                <Button
+                    variant="contained"
+                    color="primary"
+                    startIcon={<CloudDownload />}
+                    onClick={() => {
+                        // Handle download functionality here
+                    }}
+                >
+                    Download
+                </Button>
+                
                 <Button type="submit" variant="contained" color="primary">
                     Submit
                 </Button>
