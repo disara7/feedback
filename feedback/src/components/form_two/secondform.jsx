@@ -1,22 +1,49 @@
 import React from 'react';
 import './secondform.css';
-import { Accordion, AccordionSummary, AccordionDetails, FormControlLabel, FormControl, FormLabel, TextField, Button, IconButton, Checkbox, Slider, Typography } from '@mui/material';
+import { Accordion, AccordionSummary, AccordionDetails, FormControlLabel, FormControl, FormLabel, TextField, Button, IconButton, Checkbox, Slider, Typography, Popover } from '@mui/material';
 import { ExpandMore, CloudDownload } from '@mui/icons-material'; // Import the necessary icons
 import DeleteIcon from '@mui/icons-material/Delete';
 import AttachFileIcon from '@mui/icons-material/AttachFile';
+import PictureAsPdfRoundedIcon from '@mui/icons-material/PictureAsPdfRounded';
+import DataObjectRoundedIcon from '@mui/icons-material/DataObjectRounded';
+import ImageRoundedIcon from '@mui/icons-material/ImageRounded';
+import CodeRoundedIcon from '@mui/icons-material/CodeRounded';
+import IosShareRoundedIcon from '@mui/icons-material/IosShareRounded';
 
 const Secondform = () => {
 
     const [value, setValue] = React.useState('Bug');
-    const [checked, setChecked] = React.useState(false);
+    const [htmlChecked, setHtmlChecked] = React.useState(false);
+    const [pdfChecked, setPdfChecked] = React.useState(false);
+    const [jsonChecked, setJsonChecked] = React.useState(false);
     const [recommendation, setRecommendation] = React.useState(3);
+    const [anchorEl, setAnchorEl] = React.useState(null);
+
+    const handleClick = (event) => {
+        setAnchorEl(event.currentTarget);
+    };
+
+    const handleClose = () => {
+        setAnchorEl(null);
+    };
+
+    const open = Boolean(anchorEl);
+    const id = open ? 'simple-popover' : undefined;
 
     const handleChange = (event) => {
         setValue(event.target.value);
     };
 
-    const handleCheckboxChange = (event) => {
-        setChecked(event.target.checked);
+    const handleHtmlCheckboxChange = (event) => {
+        setHtmlChecked(event.target.checked);
+    };
+
+    const handlePdfCheckboxChange = (event) => {
+        setPdfChecked(event.target.checked);
+    };
+
+    const handleJsonCheckboxChange = (event) => {
+        setJsonChecked(event.target.checked);
     };
 
     const handleRecommendationChange = (event, newValue) => {
@@ -113,37 +140,74 @@ const Secondform = () => {
             <p>Not very likely</p>
                 <p>Very likely</p>
             </div>
-            <br />
-            <FormControlLabel
-                control={<Checkbox checked={checked} onChange={handleCheckboxChange} />}
-                label={<span style={{ color: 'grey' }}>Include Screenshot</span>}
-            />
+            
             <br />
             <div className='buttons'>
-                <Button
-                    variant="contained"
-                    color="primary"
-                    startIcon={<CloudDownload />}
-                    onClick={() => {
-                        // Handle download functionality here
+                <div className="buttons-style">
+                <Button 
+                    variant="contained" 
+                    color="primary"  
+                    startIcon={<IosShareRoundedIcon />} 
+                    onClick={handleClick}
+                    anchorEl={document.querySelector('.formtwo')}
+                    anchorOrigin={{
+                        vertical: 'center',
+                        horizontal: 'center',
+                    }}
+                    transformOrigin={{
+                        vertical: 'center',
+                        horizontal: 'center',
+                    }}>
+                    EXPORT
+                </Button>
+                <Popover
+                    id={id}
+                    open={open}
+                    anchorEl={anchorEl}
+                    onClose={handleClose}
+                    anchorOrigin={{
+                        vertical: 'center',
+                        horizontal: 'center',
+                    }}
+                    transformOrigin={{
+                        vertical: 'center',
+                        horizontal: 'center',
                     }}
                 >
-                    Download
-                </Button>
-                <Button
-                    variant="contained"
-                    color="primary"
-                    startIcon={<CloudDownload />}
-                    onClick={() => {
-                        // Handle download functionality here
-                    }}
-                >
-                    Download
-                </Button>
+                    <div className='popup'>
+                        
+                        <Typography variant="h6" gutterBottom>
+                            Export Options
+                        </Typography>
+                        
+                        <FormControlLabel
+                            control={<Checkbox checked={htmlChecked} onChange={handleHtmlCheckboxChange} />}
+                            label="HTML"
+                        />
+                        <FormControlLabel
+                            control={<Checkbox checked={pdfChecked} onChange={handlePdfCheckboxChange} />}
+                            label="PDF"
+                        />
+                        <FormControlLabel
+                            control={<Checkbox checked={jsonChecked} onChange={handleJsonCheckboxChange} />}
+                            label="JSON"
+                        />
+                        <br />
+                        <Button variant="contained" color="primary"  startIcon={<CloudDownload />}>
+                DOWNLOAD
+            </Button>
+                    </div>
+                </Popover>
+            
+
+                </div>
+            
                 
-                <Button type="submit" variant="contained" color="primary">
+               
+                <Button className='buttons' type="submit" variant="contained" color="primary">
                     Submit
                 </Button>
+
             </div>
         </div>
     )
