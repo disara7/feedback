@@ -3,6 +3,7 @@ import './secondform.css';
 import { Accordion, AccordionSummary, AccordionDetails, FormControlLabel, FormControl, FormLabel, TextField, Button, IconButton, Checkbox, Slider, Typography } from '@mui/material';
 import { ExpandMore, CloudDownload } from '@mui/icons-material'; // Import the necessary icons
 import DeleteIcon from '@mui/icons-material/Delete';
+import AttachFileIcon from '@mui/icons-material/AttachFile';
 
 const Secondform = () => {
 
@@ -31,16 +32,17 @@ const Secondform = () => {
                 <FormLabel component="legend">Count: 3</FormLabel>
                 <br />
                 <div className='options'>
-                    <Accordion className='accordion-style'>
+                <Accordion className='accordion-style'>
                         <AccordionSummary className='accordion-summary'
                             expandIcon={<ExpandMore />}
                             aria-controls="panel1a-content"
                             id="panel1a-header"
                         >
                             <h3 >CANVAS chart-line chart-canvas</h3>
-                        </AccordionSummary>
+                             </AccordionSummary>
                         <AccordionDetails className='details-align-right'>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+                            <IconButton className='icon-style'><AttachFileIcon /></IconButton>
                             <IconButton className='icon-style'><DeleteIcon /></IconButton>
                         </AccordionDetails>
                     </Accordion>
@@ -54,7 +56,9 @@ const Secondform = () => {
                         </AccordionSummary>
                         <AccordionDetails className='details-align-right'>
                           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
-                            <IconButton className='icon-style'><DeleteIcon /></IconButton>
+
+                        <IconButton className='icon-style'><AttachFileIcon /></IconButton>
+                       <IconButton className='icon-style'><DeleteIcon /></IconButton>
                         </AccordionDetails>
                     </Accordion>
                     <Accordion className='accordion-style'>
@@ -67,6 +71,7 @@ const Secondform = () => {
                         </AccordionSummary>
                         <AccordionDetails className='details-align-right'>
                           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+                          <IconButton className='icon-style'><AttachFileIcon /></IconButton>
                             <IconButton className='icon-style'><DeleteIcon /></IconButton>
                         </AccordionDetails>
                     </Accordion>
