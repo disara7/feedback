@@ -1,6 +1,6 @@
 import React from 'react';
 import './firstform.css';
-import { Radio, RadioGroup, FormControlLabel, FormControl, FormLabel, TextField, Button } from '@mui/material';
+import { Radio, RadioGroup, FormControlLabel, FormControl, FormLabel, TextField, Button, InputLabel, MenuItem, Select } from '@mui/material';
 import SentimentVeryDissatisfiedIcon from '@mui/icons-material/SentimentVeryDissatisfied';
 import SentimentDissatisfiedIcon from '@mui/icons-material/SentimentDissatisfied';
 import SentimentSatisfiedIcon from '@mui/icons-material/SentimentSatisfied';
@@ -23,22 +23,20 @@ const Firstform = () => {
     return (
       <div className='formone'>
         <h1>Feedback</h1>
-        <FormControl component="fieldset">
-          <FormLabel component="legend">Feedback Type:</FormLabel>
-          <RadioGroup
-            aria-label="gender"
-            defaultValue="Bug"
-            name="radio-buttons-group"
-            value={value}
-            onChange={handleChange}
-          >
-            <div className='radio'>
-              <FormControlLabel value="Bug" control={<Radio />} label="Bug" />
-              <FormControlLabel value="Feature" control={<Radio />} label="Feature" />
-              <FormControlLabel value="Request" control={<Radio />} label="Request" />
-            </div>
-          </RadioGroup>
-        </FormControl>
+        <FormControl variant="outlined" fullWidth>
+        <FormLabel component="legend">Feedback Type:</FormLabel> <br />
+                <Select
+                    
+                    id="feedback-select"
+                    value={value}
+                    onChange={handleChange}
+                    
+                >
+                    <MenuItem value="Bug">Bug</MenuItem>
+                    <MenuItem value="Feature">Feature</MenuItem>
+                    <MenuItem value="Request">Request</MenuItem>
+                </Select>
+            </FormControl>
         <br />
         
         <FormLabel component="legend">Summary:</FormLabel>

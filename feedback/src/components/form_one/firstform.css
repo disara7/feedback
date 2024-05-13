@@ -2,7 +2,7 @@
 .formone {
   background-color: white;
   padding: 1.5rem;
-  width: max-content;
+  width: 20rem;
   display: flex;
   flex-direction: column;
   border-radius: 0.5rem;
@@ -29,7 +29,7 @@ Button {
 .emojis{
   display: flex;
   flex-direction: row;
-  padding: 4rem;
+  padding: 3.8rem;
   margin-top: -4rem;
   margin-bottom: -4.5rem;
   justify-content: space-between;
