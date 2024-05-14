@@ -1,19 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './secondform.css';
 import { Accordion, AccordionSummary, AccordionDetails, FormControlLabel, FormControl, FormLabel, TextField, Button, IconButton, Checkbox, Slider, Typography, Popover } from '@mui/material';
 import { ExpandMore, CloudDownload } from '@mui/icons-material'; // Import the necessary icons
 import DeleteIcon from '@mui/icons-material/Delete';
 import AttachFileIcon from '@mui/icons-material/AttachFile';
+import PictureAsPdfRoundedIcon from '@mui/icons-material/PictureAsPdfRounded';
+import DataObjectRoundedIcon from '@mui/icons-material/DataObjectRounded';
+import ImageRoundedIcon from '@mui/icons-material/ImageRounded';
+import CodeRoundedIcon from '@mui/icons-material/CodeRounded';
 import IosShareRoundedIcon from '@mui/icons-material/IosShareRounded';
+import CloseIcon from '@mui/icons-material/Close';
 
 const Secondform = () => {
 
-    const [value, setValue] = React.useState('Bug');
-    const [htmlChecked, setHtmlChecked] = React.useState(false);
-    const [pdfChecked, setPdfChecked] = React.useState(false);
-    const [jsonChecked, setJsonChecked] = React.useState(false);
-    const [recommendation, setRecommendation] = React.useState(3);
-    const [anchorEl, setAnchorEl] = React.useState(null);
+    const [value, setValue] = useState('Bug');
+    const [htmlChecked, setHtmlChecked] = useState(false);
+    const [pdfChecked, setPdfChecked] = useState(false);
+    const [jsonChecked, setJsonChecked] = useState(false);
+    const [recommendation, setRecommendation] = useState(3);
+    const [anchorEl, setAnchorEl] = useState(null);
 
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
@@ -47,7 +52,6 @@ const Secondform = () => {
     };
 
     const handleClear = () => {
-        // Reset all the state variables to their initial values
         setValue('Type your feedback here...');
         setHtmlChecked(false);
         setPdfChecked(false);
@@ -55,8 +59,15 @@ const Secondform = () => {
         setRecommendation(3);
     };
 
+    const handleCloseForm = () => {
+        // Add logic to close the form, e.g., redirect to another page or hide it
+    };
+
     return (
         <div className='formtwo'>
+            <IconButton className="close-button" onClick={handleCloseForm}>
+                <CloseIcon />
+            </IconButton>
             <h1>Feedback</h1>
             <br />
             <FormControl component="fieldset">
@@ -206,18 +217,18 @@ const Secondform = () => {
 
 
                 </div>
-                <div className='right-buttons' >
-                    <Button variant="contained" color="secondary" onClick={handleClear}>
-                        Clear
-                    </Button>
-                    <Button type="submit" variant="contained" color="primary">
-                        Submit
-                    </Button>
+
+
+                <div className="right-buttons">
+                <Button className='buttons' type="submit" variant="contained" color="primary">
+                    Submit
+                </Button>
+
+                <Button className='buttons' variant="contained" color="secondary" onClick={handleClear}>
+                    Clear
+                </Button>
+
                 </div>
-                
-
-                
-
             </div>
         </div>
     )
