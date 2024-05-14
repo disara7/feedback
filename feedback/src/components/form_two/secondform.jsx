@@ -4,10 +4,6 @@ import { Accordion, AccordionSummary, AccordionDetails, FormControlLabel, FormCo
 import { ExpandMore, CloudDownload } from '@mui/icons-material'; // Import the necessary icons
 import DeleteIcon from '@mui/icons-material/Delete';
 import AttachFileIcon from '@mui/icons-material/AttachFile';
-import PictureAsPdfRoundedIcon from '@mui/icons-material/PictureAsPdfRounded';
-import DataObjectRoundedIcon from '@mui/icons-material/DataObjectRounded';
-import ImageRoundedIcon from '@mui/icons-material/ImageRounded';
-import CodeRoundedIcon from '@mui/icons-material/CodeRounded';
 import IosShareRoundedIcon from '@mui/icons-material/IosShareRounded';
 import CloseIcon from '@mui/icons-material/Close';
 
@@ -126,7 +122,7 @@ const Secondform = () => {
                 multiline
                 rows={4}
                 defaultValue="Default Value"
-                value={value}
+                value="Type your feedback here..."
                 onChange={handleChange}
             />
             <br /><br />
@@ -220,13 +216,14 @@ const Secondform = () => {
 
 
                 <div className="right-buttons">
+                <Button className='buttons' variant="contained" color="secondary" onClick={handleClear}>
+                    Clear
+                </Button>
                 <Button className='buttons' type="submit" variant="contained" color="primary">
                     Submit
                 </Button>
 
-                <Button className='buttons' variant="contained" color="secondary" onClick={handleClear}>
-                    Clear
-                </Button>
+                
 
                 </div>
             </div>
