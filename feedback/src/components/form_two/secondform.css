@@ -115,3 +115,9 @@
   display: flex;
   flex-direction: column;
 }
+
+.right-buttons {
+  width: 11rem;
+  display: flex;
+  justify-content: space-between;
+}

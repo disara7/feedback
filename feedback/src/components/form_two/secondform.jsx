@@ -4,10 +4,6 @@ import { Accordion, AccordionSummary, AccordionDetails, FormControlLabel, FormCo
 import { ExpandMore, CloudDownload } from '@mui/icons-material'; // Import the necessary icons
 import DeleteIcon from '@mui/icons-material/Delete';
 import AttachFileIcon from '@mui/icons-material/AttachFile';
-import PictureAsPdfRoundedIcon from '@mui/icons-material/PictureAsPdfRounded';
-import DataObjectRoundedIcon from '@mui/icons-material/DataObjectRounded';
-import ImageRoundedIcon from '@mui/icons-material/ImageRounded';
-import CodeRoundedIcon from '@mui/icons-material/CodeRounded';
 import IosShareRoundedIcon from '@mui/icons-material/IosShareRounded';
 
 const Secondform = () => {
@@ -50,6 +46,15 @@ const Secondform = () => {
         setRecommendation(newValue);
     };
 
+    const handleClear = () => {
+        // Reset all the state variables to their initial values
+        setValue('Type your feedback here...');
+        setHtmlChecked(false);
+        setPdfChecked(false);
+        setJsonChecked(false);
+        setRecommendation(3);
+    };
+
     return (
         <div className='formtwo'>
             <h1>Feedback</h1>
@@ -59,14 +64,14 @@ const Secondform = () => {
                 <FormLabel component="legend">Count: 3</FormLabel>
                 <br />
                 <div className='options'>
-                <Accordion className='accordion-style'>
+                    <Accordion className='accordion-style'>
                         <AccordionSummary className='accordion-summary'
                             expandIcon={<ExpandMore />}
                             aria-controls="panel1a-content"
                             id="panel1a-header"
                         >
                             <h3 >CANVAS chart-line chart-canvas</h3>
-                             </AccordionSummary>
+                        </AccordionSummary>
                         <AccordionDetails className='details-align-right'>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
                             <IconButton className='icon-style'><AttachFileIcon /></IconButton>
@@ -82,10 +87,10 @@ const Secondform = () => {
                             <h3 >DIV container-fluid py-4</h3>
                         </AccordionSummary>
                         <AccordionDetails className='details-align-right'>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
 
-                        <IconButton className='icon-style'><AttachFileIcon /></IconButton>
-                       <IconButton className='icon-style'><DeleteIcon /></IconButton>
+                            <IconButton className='icon-style'><AttachFileIcon /></IconButton>
+                            <IconButton className='icon-style'><DeleteIcon /></IconButton>
                         </AccordionDetails>
                     </Accordion>
                     <Accordion className='accordion-style'>
@@ -97,8 +102,8 @@ const Secondform = () => {
                             <h3 >DIV container-fluid py-4</h3>
                         </AccordionSummary>
                         <AccordionDetails className='details-align-right'>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
-                          <IconButton className='icon-style'><AttachFileIcon /></IconButton>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+                            <IconButton className='icon-style'><AttachFileIcon /></IconButton>
                             <IconButton className='icon-style'><DeleteIcon /></IconButton>
                         </AccordionDetails>
                     </Accordion>
@@ -110,11 +115,11 @@ const Secondform = () => {
                 multiline
                 rows={4}
                 defaultValue="Default Value"
-                value="Enter your feedback here..."
+                value={value}
                 onChange={handleChange}
             />
             <br /><br />
-            
+
             <Typography id="recommendation-slider" gutterBottom>
                 How likely are you to recommend?
             </Typography>
@@ -134,79 +139,84 @@ const Secondform = () => {
                 <p>3</p>
                 <p>4</p>
                 <p>5</p>
-                
+
             </div>
             <div className="scale">
-            <p>Not very likely</p>
+                <p>Not very likely</p>
                 <p>Very likely</p>
             </div>
-            
+
             <br />
             <div className='buttons'>
                 <div className="buttons-style">
-                <Button 
-                    variant="contained" 
-                    color="primary"  
-                    startIcon={<IosShareRoundedIcon />} 
-                    onClick={handleClick}
-                    anchorEl={document.querySelector('.formtwo')}
-                    anchorOrigin={{
-                        vertical: 'center',
-                        horizontal: 'center',
-                    }}
-                    transformOrigin={{
-                        vertical: 'center',
-                        horizontal: 'center',
-                    }}>
-                    EXPORT
+                    <Button
+                        variant="contained"
+                        color="primary"
+                        startIcon={<IosShareRoundedIcon />}
+                        onClick={handleClick}
+                        anchorEl={document.querySelector('.formtwo')}
+                        anchorOrigin={{
+                            vertical: 'center',
+                            horizontal: 'center',
+                        }}
+                        transformOrigin={{
+                            vertical: 'center',
+                            horizontal: 'center',
+                        }}>
+                        EXPORT
                 </Button>
-                <Popover
-                    id={id}
-                    open={open}
-                    anchorEl={anchorEl}
-                    onClose={handleClose}
-                    anchorOrigin={{
-                        vertical: 'center',
-                        horizontal: 'center',
-                    }}
-                    transformOrigin={{
-                        vertical: 'center',
-                        horizontal: 'center',
-                    }}
-                >
-                    <div className='popup'>
-                        
-                        <Typography variant="h6" gutterBottom>
-                            Export Options
+                    <Popover
+                        id={id}
+                        open={open}
+                        anchorEl={anchorEl}
+                        onClose={handleClose}
+                        anchorOrigin={{
+                            vertical: 'center',
+                            horizontal: 'center',
+                        }}
+                        transformOrigin={{
+                            vertical: 'center',
+                            horizontal: 'center',
+                        }}
+                    >
+                        <div className='popup'>
+
+                            <Typography variant="h6" gutterBottom>
+                                Export Options
                         </Typography>
-                        
-                        <FormControlLabel
-                            control={<Checkbox checked={htmlChecked} onChange={handleHtmlCheckboxChange} />}
-                            label="HTML"
-                        />
-                        <FormControlLabel
-                            control={<Checkbox checked={pdfChecked} onChange={handlePdfCheckboxChange} />}
-                            label="PDF"
-                        />
-                        <FormControlLabel
-                            control={<Checkbox checked={jsonChecked} onChange={handleJsonCheckboxChange} />}
-                            label="JSON"
-                        />
-                        <br />
-                        <Button variant="contained" color="primary"  startIcon={<CloudDownload />}>
-                DOWNLOAD
-            </Button>
-                    </div>
-                </Popover>
-            
+
+                            <FormControlLabel
+                                control={<Checkbox checked={htmlChecked} onChange={handleHtmlCheckboxChange} />}
+                                label="HTML"
+                            />
+                            <FormControlLabel
+                                control={<Checkbox checked={pdfChecked} onChange={handlePdfCheckboxChange} />}
+                                label="PDF"
+                            />
+                            <FormControlLabel
+                                control={<Checkbox checked={jsonChecked} onChange={handleJsonCheckboxChange} />}
+                                label="JSON"
+                            />
+                            <br />
+                            <Button variant="contained" color="primary" startIcon={<CloudDownload />}>
+                                DOWNLOAD
+                            </Button>
+                        </div>
+                    </Popover>
+
 
                 </div>
-            
+                <div className='right-buttons' >
+                    <Button variant="contained" color="secondary" onClick={handleClear}>
+                        Clear
+                    </Button>
+                    <Button type="submit" variant="contained" color="primary">
+                        Submit
+                    </Button>
+                </div>
                 
-               
-                <Button className='buttons' type="submit" variant="contained" color="primary">
-                    Submit
-                </Button>
+
+                
 
             </div>
         </div>
